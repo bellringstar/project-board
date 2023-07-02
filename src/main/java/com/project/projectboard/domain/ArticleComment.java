@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class ArticleComment {
 
     private Long id;
-    private Long articleId;
+    private Article article;
     private String content;
 
     private LocalDateTime createdAt;
