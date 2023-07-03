@@ -46,7 +46,7 @@ class ArticleControllerTest {
         //when&then
         mockMvc.perform(get("/articles/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/detail"))
                 .andExpect(model().attributeExists("articleComments"))
                 .andExpect(model().attributeExists("article"));
@@ -62,7 +62,7 @@ class ArticleControllerTest {
         mockMvc.perform(get("/articles/search"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(view().name("articles/search"))
-                .andExpect(content().contentType(MediaType.TEXT_HTML));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML));
     }
 
     @Disabled("구현 중")
@@ -75,6 +75,6 @@ class ArticleControllerTest {
         mockMvc.perform(get("/articles/search-hashtag"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(view().name("articles/search-hashtag"))
-                .andExpect(content().contentType(MediaType.TEXT_HTML));
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML));
     }
 }
